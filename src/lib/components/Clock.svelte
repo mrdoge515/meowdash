@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let { format }: { format: string } = $props();
+	// https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
+	const { format }: { format: string } = $props();
 
 	function padDate(n: number): string {
 		if (n < 10) {
