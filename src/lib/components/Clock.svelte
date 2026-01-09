@@ -1,39 +1,32 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// {time} {date}
 	let { format }: { format: string } = $props();
+
+	function padDate(n: number): string {
+		if (n < 10) {
+			return '0' + n;
+		} else {
+			return n.toString();
+		}
+	}
+	const tokenMap: Record<string, (d: Date) => string> = {
+		Y: (d) => padDate(d.getFullYear()),
+		M: (d) => padDate(d.getMonth() + 1),
+		d: (d) => padDate(d.getDate()),
+		H: (d) => padDate(d.getHours()),
+		m: (d) => padDate(d.getMinutes()),
+		s: (d) => padDate(d.getSeconds())
+	};
+
+	const sequence = format.split('').map((c) => tokenMap[c] ?? (() => c));
 
 	let date = $state(new Date());
 	let display = $derived.by(() => {
-		let clock = '';
-
-		for (let i = 0; i < format.length; i++) {
-			switch (format.charAt(i)) {
-				case 'Y':
-					clock += padDate(date.getFullYear());
-					break;
-				case 'M':
-					clock += padDate(date.getMonth() + 1);
-					break;
-				case 'd':
-					clock += padDate(date.getDate());
-					break;
-				case 'H':
-					clock += padDate(date.getHours());
-					break;
-				case 'm':
-					clock += padDate(date.getMinutes());
-					break;
-				case 's':
-					clock += padDate(date.getSeconds());
-					break;
-				default:
-					clock += format.charAt(i);
-			}
-		}
-
-		return clock.split(' ');
+		return sequence
+			.map((fn) => fn(date))
+			.join('')
+			.split(' ');
 	});
 
 	onMount(() => {
@@ -45,14 +38,6 @@
 			clearInterval(interval);
 		};
 	});
-
-	function padDate(n: number): string {
-		if (n < 10) {
-			return '0' + n;
-		} else {
-			return n.toString();
-		}
-	}
 </script>
 
 <div
