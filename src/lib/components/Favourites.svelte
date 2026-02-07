@@ -12,6 +12,7 @@
 			class="flex flex-col items-center justify-center pr-2 pl-2 text-xl text-slate-200 transition-colors ease-in text-shadow-md hover:text-purple-600"
 			href={fav.url.href}
 			target="_blank"
+			rel="external noopener noreferrer"
 		>
 			{#if fav.iconUrl}
 				<img class="w-10" alt="{fav.name}'s logo" src={fav.iconUrl} />
