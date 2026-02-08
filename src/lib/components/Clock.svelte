@@ -41,13 +41,8 @@
 	});
 </script>
 
-<div
-	class="isolate flex aspect-video flex-col items-center justify-center rounded-xl bg-black/20 p-4 shadow-lg ring-1 ring-black/5"
->
-	<h1
-		class="text-7xl text-white text-shadow-lg
-"
-	>
+<div class="card-glass flex aspect-video flex-col items-center justify-center p-4">
+	<h1 class="text-7xl text-white text-shadow-lg">
 		{display[0]}
 	</h1>
 	<h2 class="text-xl text-gray-200 text-shadow-md">{display[1]}</h2>

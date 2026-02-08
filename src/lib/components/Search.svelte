@@ -39,7 +39,7 @@
 	}}
 >
 	<input
-		class="isolate aspect-video h-16 items-center justify-center rounded-xl bg-black/20 pr-4 pl-4 text-xl text-gray-200 shadow-lg ring-1 ring-black/5 transition-colors ease-in focus:border-purple-500"
+		class="card-glass h-16 px-4 text-xl text-gray-200 transition-colors ease-in focus:border-purple-500"
 		type="search"
 		name="query"
 		placeholder="Search..."
