@@ -2,34 +2,13 @@
 	import Clock from '$lib/components/Clock.svelte';
 	import Search from '$lib/components/Search.svelte';
 	import Favourites from '$lib/components/Favourites.svelte';
-	import type { FavouriteLink, SearchEngine } from '$lib/types';
+	import type { FavouriteLink, SearchEngine, Settings } from '$lib/types';
+	import { getSettings } from '$lib/storage';
 
-	const favList: FavouriteLink[] = [
-		{
-			url: new URL('https://google.com/'),
-			name: 'Google',
-			iconUrl: 'https:////www.gstatic.com/images/branding/searchlogo/ico/favicon.ico'
-		},
-		{
-			url: new URL('https://github.com/mrdoge515/meowdash'),
-			name: 'meowdash',
-			iconUrl: 'https://github.githubassets.com/favicons/favicon-dark.svg'
-		}
-	];
-
-	const searchEngines: SearchEngine[] = [
-		{
-			name: 'Google',
-			searchUrl: new URL('https://google.com/search?q='),
-			shortcut: '!g'
-		},
-		{
-			name: 'DuckDuckGo',
-			searchUrl: new URL('https://duckduckgo.com/search?q='),
-			shortcut: '!d',
-			default: true
-		}
-	];
+	const settings: Settings = getSettings();
+	const clockFormat: string = settings.clockFormat;
+	const favourites: FavouriteLink[] = settings.favourites;
+	const searchEngines: SearchEngine[] = settings.searchEngines;
 </script>
 
 <svelte:head>
@@ -38,9 +17,9 @@
 
 <main class="flex min-h-screen flex-col items-center bg-linear-to-r from-indigo-900 to-purple-800">
 	<div class="flex flex-1 flex-col items-center justify-center gap-10">
-		<Clock format="H:m:s d/M/Y" />
+		<Clock format={clockFormat} />
 
-		<Favourites {favList} />
+		<Favourites favList={favourites} />
 	</div>
 
 	<div class="mx-auto w-full max-w-2xl px-4 pb-10">

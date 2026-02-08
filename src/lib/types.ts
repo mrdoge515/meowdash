@@ -10,3 +10,9 @@ export type SearchEngine = {
 	shortcut: string;
 	default?: boolean;
 };
+
+export type Settings = {
+	clockFormat: string;
+	favourites: FavouriteLink[];
+	searchEngines: SearchEngine[];
+};
