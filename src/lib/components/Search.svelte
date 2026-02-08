@@ -8,6 +8,7 @@
 </script>
 
 <form
+	class="w-full"
 	method="POST"
 	use:enhance={({ formData, cancel }) => {
 		cancel();
@@ -39,7 +40,7 @@
 	}}
 >
 	<input
-		class="card-glass h-16 px-4 text-xl text-gray-200 transition-colors ease-in focus:border-purple-500"
+		class="card-glass h-16 w-full px-4 text-xl text-gray-200 transition-colors ease-in focus:border-purple-500"
 		type="search"
 		name="query"
 		placeholder="Search..."
