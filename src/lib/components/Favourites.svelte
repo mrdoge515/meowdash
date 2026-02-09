@@ -1,7 +1,20 @@
 <script lang="ts">
 	import type { FavouriteLink } from '$lib/types';
 
-	const { favList }: { favList: FavouriteLink[] } = $props();
+	let { favList }: { favList: FavouriteLink[] } = $props();
+
+	if (typeof window !== 'undefined') {
+		// stash the value...
+		const initial = favList;
+
+		// unset it...
+		favList = undefined;
+
+		$effect(() => {
+			// ...and reset after we've mounted
+			favList = initial;
+		});
+	}
 </script>
 
 <div class="card-glass flex items-center justify-center p-4">
