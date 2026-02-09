@@ -15,7 +15,9 @@
 	<title>meowdash</title>
 </svelte:head>
 
-<main class="flex min-h-screen flex-col items-center bg-linear-to-r from-indigo-900 to-purple-800">
+<main
+	class="flex min-h-[100dvh] flex-col items-center bg-linear-to-r from-indigo-900 to-purple-800"
+>
 	<div class="flex flex-1 flex-col items-center justify-center gap-10">
 		<Clock format={clockFormat} />
 
