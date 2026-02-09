@@ -21,7 +21,7 @@
 		for (const el of searchEngines) {
 			if (query.startsWith(el.shortcut)) {
 				query = query.replace(el.shortcut, '');
-				window.location.href = el.searchUrl.toString() + query.trim();
+				window.location.href = el.searchUrl + query.trim();
 				return;
 			}
 			if (el.default) {
@@ -30,12 +30,12 @@
 		}
 
 		if (defaultEngine) {
-			window.location.href = defaultEngine.searchUrl.toString() + query;
+			window.location.href = defaultEngine.searchUrl + query;
 			return;
 		}
 
 		if (searchEngines.length > 0) {
-			window.location.href = searchEngines[0].searchUrl.toString() + query;
+			window.location.href = searchEngines[0].searchUrl + query;
 		}
 	}}
 >

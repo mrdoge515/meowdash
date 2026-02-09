@@ -4,12 +4,12 @@ const defaultSettings: Settings = {
 	clockFormat: 'H:m:s d/M/Y',
 	favourites: [
 		{
-			url: new URL('https://google.com/'),
+			url: 'https://google.com/',
 			name: 'Google',
 			iconUrl: 'https:////www.gstatic.com/images/branding/searchlogo/ico/favicon.ico'
 		},
 		{
-			url: new URL('https://github.com/mrdoge515/meowdash'),
+			url: 'https://github.com/mrdoge515/meowdash',
 			name: 'meowdash',
 			iconUrl: 'https://github.githubassets.com/favicons/favicon-dark.svg'
 		}
@@ -17,12 +17,12 @@ const defaultSettings: Settings = {
 	searchEngines: [
 		{
 			name: 'Google',
-			searchUrl: new URL('https://google.com/search?q='),
+			searchUrl: 'https://google.com/search?q=',
 			shortcut: '!g'
 		},
 		{
 			name: 'DuckDuckGo',
-			searchUrl: new URL('https://duckduckgo.com/search?q='),
+			searchUrl: 'https://duckduckgo.com/search?q=',
 			shortcut: '!d',
 			default: true
 		}

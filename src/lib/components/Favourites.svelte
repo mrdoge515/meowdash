@@ -8,7 +8,7 @@
 	{#each favList as fav (fav.name)}
 		<a
 			class="flex flex-col items-center justify-center px-2 text-xl text-slate-200 transition-colors ease-in text-shadow-md hover:text-purple-600"
-			href={fav.url.href}
+			href={fav.url}
 			target="_blank"
 			rel="external noopener noreferrer"
 		>

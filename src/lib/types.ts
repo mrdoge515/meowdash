@@ -1,12 +1,12 @@
 export type FavouriteLink = {
 	name: string;
-	url: URL;
+	url: string;
 	iconUrl?: string;
 };
 
 export type SearchEngine = {
 	name: string;
-	searchUrl: URL;
+	searchUrl: string;
 	shortcut: string;
 	default?: boolean;
 };
